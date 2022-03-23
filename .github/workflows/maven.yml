@@ -25,5 +25,5 @@ jobs:
     - name: Build with Maven
       run: mvn package
     - name: file check
-      run: pwd
+      run: ls -alth
       
