@@ -2,6 +2,7 @@ package KWIC;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +10,8 @@ import java.util.List;
 
 public class ignore extends Filter{
 
-    private File infile;
-    public ignore(File infile,Pipe input, Pipe output) {
+    private InputStream infile;
+    public ignore(InputStream infile,Pipe input, Pipe output) {
         super( input, output);
 
         this.infile=infile;
@@ -27,9 +28,9 @@ public class ignore extends Filter{
 
         List<String> strlist=new ArrayList<String>();
 
-            while(pipein.hasNextLine())
-               strlist.add(pipein.readerLine());
-
+            while(pipein.hasNextLine()) {
+                strlist.add(pipein.readerLine());
+            }
 
 
             while(input.hasNextLine()) {

@@ -5,11 +5,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-public class Output extends Filter{
+public class Output extends Filter {
     private File outfile;
+
     public Output(Pipe input, File outfile) {
         super(input, null);
-this.outfile=outfile;
+        this.outfile = outfile;
     }
 
     @Override
@@ -17,10 +18,9 @@ this.outfile=outfile;
 
         String line;
         PrintWriter pw = new PrintWriter(outfile);
-        while(input.hasNextLine()) {
+        while (input.hasNextLine()) {
 
             line = input.readerLine();
-
 
 
             pw.write(line);
@@ -30,7 +30,5 @@ this.outfile=outfile;
         pw.close();
 
         input.closeReader();
-
-
     }
 }
